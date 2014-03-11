@@ -52,7 +52,7 @@ let mapleader = ","
 highlight CursorLine cterm=bold ctermbg=black guibg=black
 
 "検索のハイライトを消す
-nnoremap <F4> :<C-u>nohlsearch<CR>
+nnoremap <C-L> :nohlsearch<CR><C-L>
 
 "set relativenumber
 nnoremap <F3> :<C-u>setlocal relativenumber!<CR>
@@ -112,6 +112,7 @@ function! s:LoadBundles()
 
   " HTML/CSS
   NeoBundle 'hail2u/vim-css3-syntax'
+  NeoBundle 'cakebaker/scss-syntax.vim'
   NeoBundle 'taichouchou2/html5.vim'
 
   " JavaScript
