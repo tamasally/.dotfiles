@@ -13,6 +13,13 @@ set backspace=indent,eol,start
 set nobackup
 set noswapfile
 set ambiwidth=double
+set mouse=a
+" hlsearchは使うがvimrcを読み込んだ時にハイライトしないようにする
+set hlsearch | nohlsearch
+set incsearch
+set smartcase
+set ignorecase
+"set wildmenu
 " カーソル行の下表示領域の設定
 set scrolloff=5
 " ビープ音を鳴らさない
@@ -26,6 +33,8 @@ set wrap
 set clipboard+=unnamed
 " チラツキ防止
 set completeopt=menuone
+set showcmd
+set smarttab
 " leaderをカンマに割り当て
 let mapleader = ","
 
@@ -41,6 +50,9 @@ let mapleader = ","
 :hi clear CursorLine
 :hi CursorLine gui=underline
 highlight CursorLine cterm=bold ctermbg=black guibg=black
+
+"検索のハイライトを消す
+nnoremap <F4> :<C-u>nohlsearch<CR>
 
 "set relativenumber
 nnoremap <F3> :<C-u>setlocal relativenumber!<CR>
@@ -406,7 +418,6 @@ map <silent> [Tag]n :tabnext<CR>
 map <silent> [Tag]p :tabprevious<CR>
 " tp 前のタブ
 
-
 " over.vimの起動
 nnoremap <silent> <Leader>m :OverCommandLine<CR>
 
@@ -415,7 +426,6 @@ nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 
 " コピーした文字列をハイライト付きで置換
 nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!!gI<Left><Left><Left>
-
 
 function! s:InitNeoBundle()
   if isdirectory(expand('~/.vim/bundle/neobundle.vim/'))
