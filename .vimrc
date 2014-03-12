@@ -19,6 +19,8 @@ set hlsearch | nohlsearch
 set incsearch
 set smartcase
 set ignorecase
+"検索をファイルの先頭へループしない
+set nowrapscan
 "set wildmenu
 " カーソル行の下表示領域の設定
 set scrolloff=5
